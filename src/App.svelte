@@ -1,34 +1,16 @@
 <script>
-  import { onMount } from 'svelte';
-  //import {peer} from './store.js';
-  //import Connect from './Connect.svelte';
-
-  export let name;
-
-  let counter = 0; // @hmr:keep
-
-  onMount(() => {
-    const interval = setInterval(() => {
-      counter++;
-    }, 1000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  });
-
+  import {peer} from './store.js';
+  import connector from './connector.svelte';
+  import sender from './sender.svelte'
+  $: peerid = peer.id
 </script>
 
 <main>
-  <h1>Hello {name}! This is a game server test</h1>
-  <p>
-    Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to
-    learn how to build Svelte apps.
-  </p>
-  <p>
-    This page has been open for {counter}s.
-  </p>
+  <h1>Hello {peerid}!</h1>
+  <connector/>
+  <sender/>
 </main>
+
 
 <style>
   main {
@@ -37,14 +19,12 @@
     max-width: 240px;
     margin: 0 auto;
   }
-
   h1 {
     color: #ff3e00;
     text-transform: uppercase;
     font-size: 4em;
     font-weight: 100;
   }
-
   @media (min-width: 640px) {
     main {
       max-width: none;

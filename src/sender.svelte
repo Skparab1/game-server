@@ -11,13 +11,13 @@
     })
     peer.on('connection', function(connection) {
         connection.on("data", (msg)=>{
-            messages.set([...messages_value, msg])
+            messages.set([...messages_value, 'test'])
         })
         console.log("fdfdfd");
     })
     function sendMsg() {
         conn_value.send(msg)
-        messages.set([...messages_value, msg])
+        messages.set([...messages_value, 'test'])
     }
 </script>
 

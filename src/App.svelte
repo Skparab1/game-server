@@ -2,11 +2,10 @@
   import {peer} from './store.js';
   import connector from './connector.svelte';
   import sender from './sender.svelte'
-  $: peerid = peer.id
 </script>
 
 <main>
-  <h1>Hello {peerid}!</h1>
+  <h1>Hello there!</h1>
   <connector/>
   <sender/>
 </main>
